@@ -55,6 +55,23 @@ public class IntegerVector {
         data[index] = item;
     } // Setter
 
+    public int position(int item) {
+        int k;
+        for (k = 0; k < numElements; k++) {
+            if (data[k] == item) {
+                break;
+            }
+        }
+        if (k >= numElements) {
+            return -1;
+        } else {
+            return k;
+        }
+    } // find the position of an item
+
+    // delete a item
+    // length of the vector
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -83,6 +100,8 @@ public class IntegerVector {
 
         myVector.set(9, 30);
         System.out.println(myVector);
+
+        System.out.println(myVector.position(8));
 
     }
 

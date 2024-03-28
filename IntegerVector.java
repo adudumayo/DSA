@@ -1,3 +1,5 @@
+import java.util.NoSuchElementException;
+
 public class IntegerVector {
     private int data[];
     private int numElements;
@@ -69,7 +71,21 @@ public class IntegerVector {
         }
     } // find the position of an item
 
-    // delete a item
+    public void delete(int position) {      
+        if (position < 0 || position >= numElements) {
+            throw new IndexOutOfBoundsException("Index out of range");
+        }
+        if (position == numElements -1) {
+            numElements--;
+        } else {
+            int k;
+            for (k = position; k < numElements - 1; k++) {
+                data[k] = data[k+1];
+            }
+            numElements--;
+        }
+    } // delete a item
+    
     // length of the vector
 
     @Override
@@ -102,6 +118,10 @@ public class IntegerVector {
         System.out.println(myVector);
 
         System.out.println(myVector.position(8));
+
+        myVector.delete(9);
+        System.out.println(myVector);
+
 
     }
 

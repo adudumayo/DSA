@@ -1,6 +1,24 @@
 import java.util.NoSuchElementException;
 
 public class IntegerVector {
+    /**
+     * This class implements a simple integer vector data structure in Java.
+     * It allows for dynamic resizing and provides methods for adding, getting,
+     * setting,
+     * finding positions, and deleting elements from the vector. The vector can be
+     * initialized
+     * with a predetermined size or with a default size of 100 elements.
+     * 
+     * The class includes input validation to ensure operations are performed within
+     * the
+     * bounds of the vector, and exception handling is implemented to handle
+     * scenarios such
+     * as out-of-bounds accesses and invalid arguments.
+     *  
+     * @author Asimanye "Dumza" Dudumayo
+     * @version 1.0
+     */
+
     private int data[];
     private int numElements;
 
@@ -71,20 +89,20 @@ public class IntegerVector {
         }
     } // find the position of an item
 
-    public void delete(int position) {      
-        if (position < 0 || position >= numElements) {
+    public void delete(int index) {      
+        if (index < 0 || index >= numElements) {
             throw new IndexOutOfBoundsException("Index out of range");
         }
-        if (position == numElements -1) {
+        if (index == numElements -1) {
             numElements--;
         } else {
             int k;
-            for (k = position; k < numElements - 1; k++) {
+            for (k = index; k < numElements - 1; k++) {
                 data[k] = data[k+1];
             }
             numElements--;
         }
-    } // delete a item
+    } // delete a item on given index
     
     public int length() {return numElements;}  // length of the vector
     

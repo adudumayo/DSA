@@ -1,5 +1,3 @@
-package DSA;
-
 public class IntegerVector {
     private int data[];
     private int numElements;
@@ -22,6 +20,26 @@ public class IntegerVector {
         }
         data[numElements++] = item;
     } // add item to the end of the vector
+
+    public void add(int item, int position) {
+        if (position >= data.length) {
+            throw new IndexOutOfBoundsException("No space available");
+        }
+        if (position < 0) {
+            throw new IllegalArgumentException("Position size cannot be negative");
+        }
+
+        if (position >= numElements) {
+            data[numElements++] = item;
+        } else {
+            int k;
+            for (k = numElements -1; k >= position; k--) {
+                data[k+1] = data[k];
+            }
+            data[k+1] = item;
+            numElements++;
+        }
+    }
 
     public static void main(String[] args) {
         System.out.println("Test string");

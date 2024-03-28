@@ -43,10 +43,17 @@ public class IntegerVector {
 
     public int get(int index) {
         if (index < 0 || index >= numElements) {
-            throw new IndexOutOfBoundsException("Index is out of range"); // not correct comment
+            throw new IndexOutOfBoundsException("Index is out of range");
         }
         return data[index];
-    } // Getting the item in the given index
+    } // Getter
+
+    public void set(int index, int item) {
+        if (index < 0 || index >= numElements) {
+            throw new IndexOutOfBoundsException("Setting out of range");
+        }
+        data[index] = item;
+    } // Setter
 
     @Override
     public String toString() {
@@ -65,14 +72,18 @@ public class IntegerVector {
     public static void main(String[] args) {
         System.out.println("Test Vector");
 
-        IntegerVector myVector = new IntegerVector(10);
+        IntegerVector myVector = new IntegerVector();
         
         for (int i = 0; i < 10; i++) {
             myVector.add(i);
         }
 
         System.out.println(myVector);
-        System.out.println(myVector.get(10));
+        System.out.println(myVector.get(9));
+
+        myVector.set(9, 30);
+        System.out.println(myVector);
+
     }
 
 } // class IntegerVector

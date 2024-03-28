@@ -39,7 +39,14 @@ public class IntegerVector {
             data[k+1] = item;
             numElements++;
         }
-    }
+    } // This adds to a given position
+
+    public int get(int index) {
+        if (index < 0 || index >= numElements) {
+            throw new IndexOutOfBoundsException("Index is out of range"); // not correct comment
+        }
+        return data[index];
+    } // Getting the item in the given index
 
     @Override
     public String toString() {
@@ -58,9 +65,14 @@ public class IntegerVector {
     public static void main(String[] args) {
         System.out.println("Test Vector");
 
-        IntegerVector myVector = new IntegerVector();
+        IntegerVector myVector = new IntegerVector(10);
+        
+        for (int i = 0; i < 10; i++) {
+            myVector.add(i);
+        }
 
         System.out.println(myVector);
+        System.out.println(myVector.get(10));
     }
 
 } // class IntegerVector

@@ -42,7 +42,11 @@ public class IntegerVector {
     }
 
     public static void main(String[] args) {
-        System.out.println("Test string");
+        System.out.println("Test Vector");
+
+        IntegerVector myVector = new IntegerVector();
+
+        System.out.println(myVector);
     }
 
 } // class IntegerVector

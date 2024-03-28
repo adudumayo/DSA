@@ -16,6 +16,13 @@ public class IntegerVector {
         this(100);
     } // this created a created a predetermined size
 
+    public void add(int item) {
+        if (numElements + 1 > data.length) {
+            throw new IndexOutOfBoundsException("No space available");
+        }
+        data[numElements++] = item;
+    } // add item to the end of the vector
+
     public static void main(String[] args) {
         System.out.println("Test string");
     }

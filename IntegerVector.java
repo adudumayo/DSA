@@ -41,6 +41,20 @@ public class IntegerVector {
         }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < numElements; i++) {
+            sb.append(data[i]);
+            if (i < numElements - 1) {
+                sb.append(", ");
+            }
+        }
+        sb.append("]");
+        return sb.toString();
+    }
+
     public static void main(String[] args) {
         System.out.println("Test Vector");
 

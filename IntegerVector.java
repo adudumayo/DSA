@@ -86,7 +86,8 @@ public class IntegerVector {
         }
     } // delete a item
     
-    // length of the vector
+    public int length() {return numElements;}  // length of the vector
+    
 
     @Override
     public String toString() {
@@ -122,7 +123,7 @@ public class IntegerVector {
         myVector.delete(9);
         System.out.println(myVector);
 
-
+        System.out.println(myVector.length());
     }
 
 } // class IntegerVector

@@ -47,4 +47,27 @@ public class IntegerList {
         numElements++;
     } // add with item and position
 
+    public String toString() {
+        StringBuffer s = new StringBuffer("[");
+        for (ListNode curr = first; curr != null; curr = curr.next) {
+            s.append("" + curr.data);
+            if (curr.next != null)
+                s.append(", ");
+        }
+        s.append("]");
+        return s.toString();
+    } // toString
+
+    public static void main(String[] args) {
+        IntegerList firstList = new IntegerList();
+        firstList.add(0);
+        firstList.add(1, 1);
+        firstList.add(2, 2);
+        firstList.add(3, 3);
+        firstList.add(4,4);
+        firstList.add(5, 5);
+
+        System.out.println(firstList);
+    }
+
 } // InterList Class

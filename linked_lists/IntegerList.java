@@ -99,9 +99,29 @@ public class IntegerList {
         }
     } // position
 
+
+    // I did not test this one, Ich bin sehr mude
     public void remove(int position) {
-        ;
-    }
+        if (position < 0 || position >= numElements) {
+            throw new IndexOutOfBoundsException("The position is out of range");
+        }
+
+        ListNode frontLink = first, backLink = null;
+
+        for (int i = 0; i < position && frontLink != null; i++) {
+            backLink = frontLink;
+            frontLink = frontLink.next;
+        }
+
+        assert frontLink != null;
+
+        if (backLink != null) {
+            backLink.next = frontLink.next;
+        } else {
+            first = frontLink.next;
+        }
+        numElements--;
+    } // remove
 
     public String toString() {
         StringBuffer s = new StringBuffer("[");

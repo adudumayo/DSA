@@ -43,6 +43,8 @@ public class IntegerList {
         } else {
             first = node;
         }
+
+        numElements++;
     } // add with item and position
 
 } // InterList Class

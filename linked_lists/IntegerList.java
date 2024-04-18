@@ -47,6 +47,48 @@ public class IntegerList {
         numElements++;
     } // add with item and position
 
+    public int get(int index) {
+        if (index < 0 || index > numElements) {
+            throw new IndexOutOfBoundsException("Your index is too big or negative");
+        }
+
+        ListNode temp = first;
+        
+        for (int i = 0; i < index && temp != null; i ++) {
+            temp = temp.next;
+        }
+
+        assert temp != null;
+
+        return temp.data;
+    } // getter
+
+    public void set(int index, int item) {
+        if (index < 0 || index > numElements) {
+            throw new IndexOutOfBoundsException("Your index is either negative or too big");
+        }
+
+        ListNode temp = first;
+
+        for (int i = 0; i < index && temp != null; i++) {
+            temp = temp.next;
+        }
+
+        assert temp != null;
+
+        temp.data = item;
+    } // setter
+
+    public int length() { return this.numElements; } // returns the length of the list
+
+    public int position(int item) {
+        return 1;
+    }
+
+    public void remove(int position) {
+        ;
+    }
+
     public String toString() {
         StringBuffer s = new StringBuffer("[");
         for (ListNode curr = first; curr != null; curr = curr.next) {
@@ -60,12 +102,9 @@ public class IntegerList {
 
     public static void main(String[] args) {
         IntegerList firstList = new IntegerList();
-        firstList.add(0);
-        firstList.add(1, 1);
-        firstList.add(2, 2);
-        firstList.add(3, 3);
-        firstList.add(4,4);
-        firstList.add(5, 5);
+        for (int i = 0; i <= 10; i++) {
+            firstList.add(i, i);
+        }
 
         System.out.println(firstList);
     }

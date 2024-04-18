@@ -81,9 +81,23 @@ public class IntegerList {
 
     public int length() { return this.numElements; } // returns the length of the list
 
-    public int position(int item) {
-        return 1;
-    }
+    public int position(int item)
+    // find the position of a given item
+    {
+        ListNode temp = first;
+
+        int index;
+
+        for (index = 0; temp != null && temp.data != item; index++, temp = temp.next) {
+            ;
+        }
+
+        if (temp == null) {
+            return -1;
+        } else {
+            return index;
+        }
+    } // position
 
     public void remove(int position) {
         ;
